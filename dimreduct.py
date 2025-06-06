@@ -4,6 +4,15 @@ import umap
 import os
 from logic import *
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_dir = os.path.join(current_dir, "data")
+pca_dir = os.path.join(data_dir, "pca")
+umap_dir = os.path.join(data_dir, "umap")
+os.makedirs(pca_dir, exist_ok=True)
+os.makedirs(umap_dir, exist_ok=True)
+
+features_path = os.path.join(data_dir, "feat_dinov2_vits14_VocPascal.npy")
+features = np.load(features_path)
 dimensions = [16, 32, 64, 128, 256]
 
 def reducesave_pca(features, n_components, save_path):
@@ -19,10 +28,10 @@ def reducesave_umap(features, n_components, save_path, random_state=42):
     return features_umap
 
 def get_pca_path(dim):
-    return os.path.join(data_dir, f"features_pca_{dim}.npy")
+    return os.path.join(pca_dir, f"features_pca_{dim}.npy")
 
 def get_umap_path(dim):
-    return os.path.join(data_dir, f"features_umap_{dim}.npy")
+    return os.path.join(umap_dir, f"features_umap_{dim}.npy")
 
 for dim in dimensions:
     reducesave_pca(features, dim, get_pca_path(dim))

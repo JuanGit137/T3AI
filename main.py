@@ -1,6 +1,13 @@
-from logic import *
-from dimreduct import reducesave_pca, reducesave_umap
+#from dinov2 import *
+from clustering import clustering
+#from dimreduct import *
 
-for dim in dimensions:
-    reducesave_pca(features, dim, get_pca_path(dim))
-    reducesave_umap(features, dim, get_umap_path(dim))
+def main():
+    #dinov
+    clustering()
+    #reduct1()
+    #reduct2()
+    #plots()
+
+if __name__ == '__main__':
+    main()
