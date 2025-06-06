@@ -1,9 +1,9 @@
-#from dinov2 import *
+from dinov2 import extract_features
 from clustering import clustering
 #from dimreduct import *
 
 def main():
-    #dinov
+    extract_features()
     clustering()
     #reduct1()
     #reduct2()

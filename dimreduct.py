@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.decomposition import PCA
 import umap
 import os
+#from config import NPY_DIR, CURRENT_DIR
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 npydir = os.path.join(current_dir, "data", "feat_dinov2_vits14_VocPascal.npy")
