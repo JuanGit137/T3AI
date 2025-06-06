@@ -2,6 +2,9 @@ import numpy as np
 from sklearn.decomposition import PCA
 import umap
 import os
+from logic import *
+
+dimensions = [16, 32, 64, 128, 256]
 
 def reducesave_pca(features, n_components, save_path):
     pca = PCA(n_components=n_components)
@@ -14,3 +17,13 @@ def reducesave_umap(features, n_components, save_path, random_state=42):
     features_umap = reducer.fit_transform(features)
     np.save(save_path, features_umap)
     return features_umap
+
+def get_pca_path(dim):
+    return os.path.join(data_dir, f"features_pca_{dim}.npy")
+
+def get_umap_path(dim):
+    return os.path.join(data_dir, f"features_umap_{dim}.npy")
+
+for dim in dimensions:
+    reducesave_pca(features, dim, get_pca_path(dim))
+    reducesave_umap(features, dim, get_umap_path(dim))
