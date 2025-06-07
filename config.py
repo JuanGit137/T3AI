@@ -10,5 +10,5 @@ UMAP_DIR = os.path.join(CURRENT_DIR, "data", "umap")
 IMAGE_DIR = os.path.join(CURRENT_DIR, DATASET, "JPEGImages")
 JSON_DIR = os.path.join(CURRENT_DIR, "data", "clustering_results.json")
 
-FEATURE_FILE = os.path.join(CURRENT_DIR, "data", f"feat_dinov2_vits14_VocPascal.npy")
+FEATURE_FILE = os.path.join(CURRENT_DIR, "data", "feat_dinov2_vits14_VocPascal.npy")
 VAL_LIST = os.path.join(CURRENT_DIR, DATASET, "val_voc.txt")
