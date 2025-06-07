@@ -21,7 +21,7 @@ def extract_dims(results, method_prefix):
     ))
 
 def plot_metric(results, metric_name, ylabel, title):
-    dims = extract_dims(results, "PCA")  # Asumimos mismas dims para UMAP
+    dims = extract_dims(results, "PCA") 
     ks = [20, 50]
     
     plt.figure(figsize=(8, 5))
@@ -32,7 +32,6 @@ def plot_metric(results, metric_name, ylabel, title):
         plt.plot(dims, get_metric(results, "UMAP", metric_name, k),
                  marker='s', label=f'UMAP k={k}')
 
-    # DINOv2 horizontal lines
     dinov2_vals = [r[metric_name] for r in results if r["name"] == "DINOv2"]
     for idx, val in enumerate(dinov2_vals):
         if idx < len(ks):
